@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="TOPA AI Advisory Group — led by Flora Bahari. Practical AI advisory for business: Your potential. New possibilities. Based in the Greater Toronto Area." />
+    <link rel="icon" href="data:," />
+    <title>TOPA AI Advisory Group — Your potential. New possibilities.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #fbfaf7;
+        --bg-raised: #ffffff;
+        --ink: #1e2420;
+        --ink-soft: #47514b;
+        --ink-faint: #6d776f;
+        --line: #ddd8cd;
+        --accent: #8a5a1d;
+        --accent-strong: #6f4713;
+        --accent-soft: #f0e6d4;
+        --deep: #16211b;
+        --deep-ink: #eef0e9;
+        --deep-soft: #b9c2b6;
+        --deep-accent: #d9a94f;
+        --radius: 14px;
+        --maxw: 1120px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #10140f;
+          --bg-raised: #171d16;
+          --ink: #eceee6;
+          --ink-soft: #c3cabd;
+          --ink-faint: #97a191;
+          --line: #2c352b;
+          --accent: #d9a94f;
+          --accent-strong: #eec26e;
+          --accent-soft: #2a2416;
+          --deep: #0a0e0a;
+          --deep-ink: #eef0e9;
+          --deep-soft: #b9c2b6;
+          --deep-accent: #d9a94f;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      img { max-width: 100%; display: block; }
+      a { color: var(--accent-strong); }
+      .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+      /* ---------- Nav ---------- */
+      header.site-nav {
+        position: sticky; top: 0; z-index: 50;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        max-width: var(--maxw); margin: 0 auto; padding: 0 22px;
+        display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        min-height: 58px;
+      }
+      .nav-brand {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.15rem; font-weight: 700; color: var(--ink); text-decoration: none;
+        letter-spacing: 0.01em; white-space: nowrap;
+      }
+      .nav-brand span { color: var(--accent); font-style: italic; font-weight: 600; }
+      nav.links { display: flex; gap: 4px; }
+      nav.links a {
+        color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; font-weight: 500;
+        padding: 10px 12px; border-radius: 8px; min-height: 40px; display: inline-flex; align-items: center;
+      }
+      nav.links a:hover { color: var(--ink); background: var(--accent-soft); }
+      .nav-toggle {
+        display: none; background: none; border: 1px solid var(--line); border-radius: 8px;
+        color: var(--ink); font: inherit; font-size: 0.95rem; font-weight: 600;
+        padding: 8px 14px; min-height: 40px; cursor: pointer;
+      }
+      @media (max-width: 720px) {
+        .nav-toggle { display: inline-flex; align-items: center; }
+        nav.links {
+          display: none; position: absolute; top: 58px; left: 0; right: 0;
+          flex-direction: column; gap: 0; padding: 8px 14px 14px;
+          background: var(--bg); border-bottom: 1px solid var(--line);
+        }
+        nav.links.open { display: flex; }
+        nav.links a { padding: 12px 10px; border-radius: 6px; }
+      }
+
+      /* ---------- Hero ---------- */
+      .hero { padding: 64px 0 56px; }
+      .hero-grid {
+        display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center;
+      }
+      @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } }
+      .brand-line {
+        margin: 0 0 14px; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.14em;
+        text-transform: uppercase; color: var(--accent-strong);
+      }
+      .hero h1 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(2.3rem, 5.2vw, 3.6rem);
+        line-height: 1.12; font-weight: 700; margin: 0 0 20px; letter-spacing: -0.01em;
+      }
+      .hero h1 em { color: var(--accent); font-style: italic; }
+      .hero .lede { font-size: 1.16rem; color: var(--ink-soft); margin: 0 0 28px; max-width: 34rem; }
+      .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        min-height: 48px; padding: 12px 22px; border-radius: 10px;
+        font: inherit; font-weight: 600; font-size: 1rem; text-decoration: none; cursor: pointer;
+        border: 1px solid transparent;
+      }
+      .btn-primary { background: var(--accent); color: #fff; }
+      .btn-primary:hover { background: var(--accent-strong); }
+      @media (prefers-color-scheme: dark) { .btn-primary { color: #171106; } }
+      .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+      .btn-ghost:hover { border-color: var(--accent); color: var(--accent-strong); }
+      .hero-video { margin: 0; justify-self: center; width: 100%; max-width: 330px; }
+      .phone-frame {
+        border: 10px solid #10130f; border-radius: 42px; overflow: hidden;
+        background: #000; box-shadow: 0 24px 50px rgba(16, 22, 17, 0.28);
+        aspect-ratio: 9 / 16; position: relative;
+      }
+      @media (prefers-color-scheme: dark) { .phone-frame { border-color: #2c352b; } }
+      .phone-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .hero-video figcaption {
+        margin-top: 14px; font-size: 0.92rem; color: var(--ink-soft); text-align: center;
+      }
+      .hero-video figcaption strong { color: var(--ink); }
+      .fact-strip {
+        margin-top: 52px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+        display: grid; grid-template-columns: repeat(4, 1fr);
+      }
+      @media (max-width: 860px) { .fact-strip { grid-template-columns: repeat(2, 1fr); } }
+      .fact { padding: 20px 18px 20px 0; }
+      .fact + .fact { border-left: 1px solid var(--line); padding-left: 18px; }
+      @media (max-width: 860px) {
+        .fact:nth-child(3) { border-left: none; padding-left: 0; }
+        .fact { border-top: 1px solid var(--line); }
+        .fact:nth-child(-n+2) { border-top: none; }
+      }
+      .fact strong {
+        display: block; font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.35rem; font-weight: 700; line-height: 1.2; margin-bottom: 4px;
+      }
+      .fact span { font-size: 0.9rem; color: var(--ink-soft); }
+
+      /* ---------- Sections ---------- */
+      section.block { padding: 72px 0; scroll-margin-top: 70px; }
+      section.block.tight { padding-top: 8px; }
+      .section-head { max-width: 44rem; margin-bottom: 40px; }
+      .section-head h2 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.8rem, 3.6vw, 2.5rem); line-height: 1.18; font-weight: 700; margin: 0 0 12px;
+      }
+      .section-head p { color: var(--ink-soft); margin: 0; font-size: 1.05rem; }
+
+      .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: start; }
+      @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 28px; } }
+      .about-grid figure { margin: 0; }
+      .about-grid figure img { width: 100%; height: 420px; object-fit: cover; border-radius: var(--radius); }
+      .about-grid figcaption { margin-top: 10px; font-size: 0.85rem; color: var(--ink-faint); }
+      .about-copy p { margin: 0 0 18px; color: var(--ink-soft); font-size: 1.05rem; }
+      .about-copy p:first-child { color: var(--ink); font-size: 1.14rem; }
+      .about-copy p strong { color: var(--ink); }
+
+      /* Focus areas */
+      .focus-list { border-top: 1px solid var(--line); }
+      .focus-row {
+        display: grid; grid-template-columns: 64px 1fr 1.4fr; gap: 24px; align-items: baseline;
+        padding: 28px 4px; border-bottom: 1px solid var(--line);
+      }
+      @media (max-width: 720px) { .focus-row { grid-template-columns: 1fr; gap: 6px; padding: 24px 2px; } }
+      .focus-row .num {
+        font-family: "Playfair Display", Georgia, serif; font-style: italic;
+        font-size: 1.5rem; color: var(--accent); font-weight: 600;
+      }
+      .focus-row h3 {
+        font-family: "Playfair Display", Georgia, serif; font-size: 1.35rem; font-weight: 700; margin: 0; line-height: 1.3;
+      }
+      .focus-row p { margin: 0; color: var(--ink-soft); }
+
+      /* Method */
+      .method-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+      @media (max-width: 860px) { .method-grid { grid-template-columns: 1fr; gap: 30px; } }
+      .method-video { margin: 0; }
+      .method-video .frame {
+        border-radius: var(--radius); overflow: hidden; background: #000;
+        aspect-ratio: 16 / 9; box-shadow: 0 18px 40px rgba(16, 22, 17, 0.22);
+      }
+      .method-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .method-video figcaption { margin-top: 10px; font-size: 0.88rem; color: var(--ink-faint); }
+      .method-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+      .method-steps li {
+        display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: baseline;
+        padding: 15px 2px; border-top: 1px solid var(--line);
+      }
+      .method-steps li:last-child { border-bottom: 1px solid var(--line); }
+      .method-steps .n {
+        font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 600;
+        color: var(--accent); font-size: 1.25rem;
+      }
+      .method-steps h3 {
+        margin: 0 0 2px; font-size: 1.02rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      }
+      .method-steps p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+
+      /* Bird banner */
+      .bird-banner { margin: 0; }
+      .bird-banner img { width: 100%; height: 340px; object-fit: cover; border-radius: var(--radius); }
+      @media (max-width: 720px) { .bird-banner img { height: 240px; } }
+      .bird-banner figcaption { margin-top: 10px; font-size: 0.88rem; color: var(--ink-faint); text-align: center; }
+
+      /* Dark band: background */
+      .band { background: var(--deep); color: var(--deep-ink); }
+      .band .section-head h2 { color: var(--deep-ink); }
+      .band .section-head p { color: var(--deep-soft); }
+      .roles { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+      @media (max-width: 720px) { .roles { grid-template-columns: 1fr; } }
+      .role { padding: 24px 0; border-top: 1px solid #2c3a30; }
+      .role h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.3rem; margin: 0 0 4px; font-weight: 700; }
+      .role .where { color: var(--deep-accent); font-weight: 600; font-size: 0.95rem; margin: 0 0 8px; }
+      .role p { color: var(--deep-soft); margin: 0; }
+
+      /* Journey */
+      .journey { max-width: 46rem; }
+      .step { display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+      .step:last-child { border-bottom: 1px solid var(--line); }
+      @media (max-width: 560px) { .step { grid-template-columns: 1fr; gap: 4px; } }
+      .step .when {
+        font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 600;
+        color: var(--accent); font-size: 1.1rem;
+      }
+      .step h3 { margin: 0 0 4px; font-size: 1.08rem; font-weight: 700; }
+      .step p { margin: 0; color: var(--ink-soft); }
+
+      /* Voice */
+      .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+      @media (max-width: 860px) { .voice-grid { grid-template-columns: 1fr; gap: 28px; } }
+      .voice-grid img { width: 100%; height: 360px; object-fit: cover; border-radius: var(--radius); }
+      .voice-copy h2 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.8rem, 3.6vw, 2.5rem); line-height: 1.18; margin: 0 0 14px; font-weight: 700;
+      }
+      .voice-copy p { color: var(--ink-soft); margin: 0 0 16px; }
+      blockquote.pull {
+        margin: 26px 0 0; padding: 0 0 0 22px; border-left: 3px solid var(--accent);
+        font-family: "Playfair Display", Georgia, serif; font-style: italic;
+        font-size: 1.3rem; line-height: 1.45; color: var(--ink);
+      }
+
+      /* Contact */
+      .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: start; }
+      @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 30px; } }
+      .contact-copy h2 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.8rem, 3.6vw, 2.5rem); line-height: 1.18; margin: 0 0 14px; font-weight: 700;
+      }
+      .contact-copy p { color: var(--ink-soft); margin: 0 0 14px; }
+      .contact-copy .loc { font-weight: 600; color: var(--ink); }
+      .contact-methods { margin: 22px 0 6px; display: grid; gap: 12px; }
+      .contact-method {
+        display: flex; align-items: center; gap: 14px;
+        padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px;
+        background: var(--bg-raised); text-decoration: none; color: var(--ink);
+      }
+      .contact-method:hover { border-color: var(--accent); }
+      .contact-method .cm-label {
+        display: block; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--ink-faint); line-height: 1.3;
+      }
+      .contact-method .cm-value {
+        display: block; font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.35rem; font-weight: 700; line-height: 1.25; color: var(--accent-strong);
+      }
+      .contact-note { font-size: 0.95rem; }
+      form.composer {
+        background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 26px;
+      }
+      form.composer label { display: block; font-weight: 600; font-size: 0.95rem; margin: 0 0 6px; }
+      form.composer .field { margin-bottom: 18px; }
+      form.composer input, form.composer textarea {
+        width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+        padding: 11px 13px; min-height: 44px;
+      }
+      form.composer textarea { min-height: 120px; resize: vertical; }
+      form.composer input:focus, form.composer textarea:focus {
+        outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent);
+      }
+      .form-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+      .copy-status { min-height: 1.5em; margin: 12px 0 0; font-size: 0.95rem; color: var(--accent-strong); font-weight: 600; }
+
+      footer {
+        border-top: 1px solid var(--line); padding: 34px 0 44px; margin-top: 8px;
+        color: var(--ink-faint); font-size: 0.92rem;
+      }
+      footer .foot-grid { display: flex; flex-wrap: wrap; gap: 8px 40px; justify-content: space-between; }
+      footer p { margin: 0; }
+
+      /* Hero entrance only — content is never hidden waiting on scroll. */
+      @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+      .hero-grid > div, .hero-video { animation: riseIn 0.7s ease both; }
+      .hero-video { animation-delay: 0.12s; }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-grid > div, .hero-video { animation: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <div class="nav-inner">
+        <a class="nav-brand" href="#top">TOPA <span>AI Advisory Group</span></a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        <nav class="links" id="navLinks" aria-label="Sections">
+          <a href="#about">About</a>
+          <a href="#focus">Focus</a>
+          <a href="#method">Method</a>
+          <a href="#background">Background</a>
+          <a href="#journey">Journey</a>
+          <a href="#voice">Voice</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <div class="hero">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div>
+              <p class="brand-line">TOPA AI Advisory Group · led by Flora Bahari</p>
+              <h1>Your potential. <em>New possibilities.</em></h1>
+              <p class="lede">
+                TOPA helps businesses put AI to practical work. The group is led by Flora Bahari —
+                an interior designer, business professional, master of ceremonies, and singer in the
+                Greater Toronto Area — and grounded in her approach: thoughtful work, clear
+                language, and solutions built around people's actual needs.
+              </p>
+              <div class="hero-ctas">
+                <button class="btn btn-primary" type="button" id="watchIntro">▶&ensp;Watch my introduction</button>
+                <a class="btn btn-ghost" href="#about">Meet Flora</a>
+                <a class="btn btn-ghost" href="#contact">Start a conversation</a>
+              </div>
+            </div>
+            <figure class="hero-video">
+              <div class="phone-frame">
+                <video id="introVideo" controls playsinline preload="metadata" poster="assets/intro-poster.jpg" aria-label="Flora Bahari's introduction video">
+                  <source src="assets/intro.mp4" type="video/mp4" />
+                  Your browser cannot play this video.
+                </video>
+              </div>
+              <figcaption><strong>Meet Flora</strong> — TOPA's lead advisor introduces herself, in her own words (53 seconds).</figcaption>
+            </figure>
+          </div>
+
+          <div class="fact-strip" aria-label="At a glance">
+            <div class="fact">
+              <strong>Since 2012</strong>
+              <span>Founder, Flora Staging and Design</span>
+            </div>
+            <div class="fact">
+              <strong>Greater Toronto Area</strong>
+              <span>Based in the GTA, working with homeowners and businesses</span>
+            </div>
+            <div class="fact">
+              <strong>AI for Business</strong>
+              <span>Completed at CAMA College; now studying AI Advisory</span>
+            </div>
+            <div class="fact">
+              <strong>Radio Arina</strong>
+              <span>Former host of a live radio show</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="block tight" id="about">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>About Flora</h2>
+          </div>
+          <div class="about-grid">
+            <figure class="reveal">
+              <img src="assets/toronto.webp" alt="The Toronto skyline and CN Tower at dusk, reflected in the water" />
+              <figcaption>Home base: the Greater Toronto Area.</figcaption>
+            </figure>
+            <div class="about-copy reveal">
+              <p>
+                I'm Flora Bahari, an interior designer, business professional, master of ceremonies
+                (MC), and singer based in the Greater Toronto Area.
+              </p>
+              <p>
+                I founded <strong>Flora Staging and Design</strong> in 2012, working with homeowners
+                on interior design and home staging. At <strong>Eskan Canada Building Group</strong>,
+                I help clients make informed renovation decisions through design consultation,
+                material selection, and product solutions.
+              </p>
+              <p>
+                My background also includes sales, client relations, and day-to-day management in
+                the condominium accommodation business.
+              </p>
+              <p>
+                I completed the <strong>AI for Business</strong> course at CAMA College and am
+                currently studying <strong>AI Advisory</strong>, with a focus on practical
+                applications of AI in business.
+              </p>
+              <p>
+                I previously hosted a live radio show on <strong>Radio Arina</strong>. Through
+                broadcasting, live event hosting, and singing, I bring a strong interest in voice,
+                storytelling, and connecting with an audience.
+              </p>
+              <p>
+                My personal brand brings together AI advisory, design, business experience, and
+                communication. I value thoughtful work, clear language, and solutions grounded in
+                people's actual needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Focus -->
+      <section class="block" id="focus">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>What TOPA brings to AI advisory</h2>
+            <p>
+              TOPA is led by Flora Bahari, and her experience shapes every engagement: AI advice
+              lands differently when it comes from someone who has run businesses, served clients
+              face to face, and stood in front of a live audience.
+            </p>
+          </div>
+          <div class="focus-list reveal">
+            <div class="focus-row">
+              <div class="num">01</div>
+              <h3>Practical AI for business</h3>
+              <p>
+                Trained through the AI for Business course at CAMA College and now studying AI
+                Advisory, Flora focuses on where AI genuinely helps a business day to day —
+                not technology for its own sake.
+              </p>
+            </div>
+            <div class="focus-row">
+              <div class="num">02</div>
+              <h3>A designer's eye</h3>
+              <p>
+                More than a decade of interior design and home staging shapes how she sees a
+                problem: how people actually live and work in a space, and what will serve
+                them well.
+              </p>
+            </div>
+            <div class="focus-row">
+              <div class="num">03</div>
+              <h3>Business &amp; client experience</h3>
+              <p>
+                Sales, client relations, and day-to-day management in the condominium
+                accommodation business — plus design consultation and material selection at
+                Eskan Canada Building Group — ground her advice in real operations.
+              </p>
+            </div>
+            <div class="focus-row">
+              <div class="num">04</div>
+              <h3>Voice &amp; storytelling</h3>
+              <p>
+                As a former live radio host, MC, and singer, Flora knows how to explain ideas
+                clearly and hold an audience — so AI guidance is communicated in plain,
+                human language.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Method -->
+      <section class="block tight" id="method">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>How we work — the TOPA method</h2>
+            <p>
+              Every engagement follows the same six steps, taking an idea from paper to flight —
+              the journey of TOPA's white bird, from origami to a real bird in the air.
+            </p>
+          </div>
+          <div class="method-grid">
+            <figure class="method-video reveal">
+              <div class="frame">
+                <video controls playsinline preload="metadata" poster="assets/topa-poster.jpg" aria-label="The TOPA brand film: a white origami bird becomes a real bird, through the six steps of the TOPA method">
+                  <source src="assets/topa-method.mp4" type="video/mp4" />
+                  Your browser cannot play this video.
+                </video>
+              </div>
+              <figcaption>The TOPA film — our bird, our method, our promise: your potential, new possibilities.</figcaption>
+            </figure>
+            <ol class="method-steps reveal">
+              <li>
+                <span class="n">01</span>
+                <div>
+                  <h3>Discover</h3>
+                  <p>We learn your business first — your goals, your people, and how work actually gets done day to day.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">02</span>
+                <div>
+                  <h3>Diagnose</h3>
+                  <p>We pinpoint where AI will genuinely help — and where it won't — so effort goes only where it counts.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">03</span>
+                <div>
+                  <h3>Design</h3>
+                  <p>We shape the solution around your team, your tools, and your clients — comparing where you are now with where you plan to be.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">04</span>
+                <div>
+                  <h3>Roadmap</h3>
+                  <p>You receive a clear, step-by-step plan: what happens, in what order, and why.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">05</span>
+                <div>
+                  <h3>Deploy</h3>
+                  <p>The solution goes into daily use, with your people supported as it lands.</p>
+                </div>
+              </li>
+              <li>
+                <span class="n">06</span>
+                <div>
+                  <h3>Measure</h3>
+                  <p>We check the results against the goal — and refine whatever needs refining.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Background -->
+      <section class="block band" id="background">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Background</h2>
+            <p>The experience behind the advisory work.</p>
+          </div>
+          <div class="roles reveal">
+            <div class="role">
+              <h3>Founder</h3>
+              <p class="where">Flora Staging and Design · since 2012</p>
+              <p>Interior design and home staging for homeowners across the Greater Toronto Area.</p>
+            </div>
+            <div class="role">
+              <h3>Design consultation</h3>
+              <p class="where">Eskan Canada Building Group</p>
+              <p>Helping clients make informed renovation decisions through design consultation, material selection, and product solutions.</p>
+            </div>
+            <div class="role">
+              <h3>Sales &amp; management</h3>
+              <p class="where">Condominium accommodation business</p>
+              <p>Sales, client relations, and day-to-day management — the operational side of serving clients well.</p>
+            </div>
+            <div class="role">
+              <h3>Host, MC &amp; singer</h3>
+              <p class="where">Radio Arina · live events</p>
+              <p>Hosted a live radio show on Radio Arina, alongside live event hosting and singing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Journey -->
+      <section class="block" id="journey">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>The road to AI advisory</h2>
+          </div>
+          <div class="journey reveal">
+            <div class="step">
+              <div class="when">2012</div>
+              <div>
+                <h3>Flora Staging and Design is founded</h3>
+                <p>Flora begins working with homeowners on interior design and home staging in the Greater Toronto Area.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="when">On air</div>
+              <div>
+                <h3>Live radio on Radio Arina</h3>
+                <p>Hosting a live show builds the voice, storytelling, and audience connection that still shape her communication today.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="when">CAMA College</div>
+              <div>
+                <h3>AI for Business — completed</h3>
+                <p>Formal training in how AI applies to business, adding a new discipline to years of design and management experience.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="when">Now</div>
+              <div>
+                <h3>Studying AI Advisory — and leading TOPA</h3>
+                <p>Currently studying AI Advisory, focused on practical applications of AI in business — and leading TOPA AI Advisory Group, the team putting that perspective to work for clients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Voice -->
+      <section class="block tight" id="voice">
+        <div class="wrap">
+          <div class="voice-grid">
+            <div class="reveal">
+              <img src="assets/studio.png" alt="A professional broadcast microphone in a studio with a glowing red On Air sign" />
+            </div>
+            <div class="voice-copy reveal">
+              <h2>A voice people remember</h2>
+              <p>
+                Before AI advisory, there was the microphone. Flora hosted a live radio show on
+                Radio Arina, and continues to work as a master of ceremonies and singer — crafts
+                built on voice, storytelling, and connecting with an audience in the moment.
+              </p>
+              <p>
+                That experience carries into her advisory work: ideas are explained in clear
+                language, and technology is always translated back into what it means for the
+                people in the room.
+              </p>
+              <blockquote class="pull">
+                "Thoughtful work, clear language, and solutions grounded in people's actual needs."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bird banner -->
+      <div class="wrap">
+        <figure class="bird-banner reveal">
+          <img src="assets/origami-bird.jpg" alt="TOPA's white origami bird, lit warmly against a dark background, before it takes flight" />
+          <figcaption>The TOPA bird — every engagement begins on paper and ends in flight.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Contact -->
+      <section class="block" id="contact">
+        <div class="wrap">
+          <div class="contact-grid">
+            <div class="contact-copy reveal">
+              <h2>Start a conversation</h2>
+              <p>
+                Interested in practical AI guidance for your business — explained clearly, by a
+                team led by someone who has run businesses of her own? Call Flora directly, or
+                draft your message here and open it as a draft in your own email app.
+              </p>
+              <div class="contact-methods">
+                <a class="contact-method" href="tel:+14169004177" aria-label="Call Flora Bahari at 416-900-4177">
+                  <span>
+                    <span class="cm-label">Call or text</span>
+                    <span class="cm-value">416-900-4177</span>
+                  </span>
+                </a>
+              </div>
+              <p class="contact-note">
+                Prefer email? Fill in the form and choose “Open as email” — the site builds a
+                draft in your own mail app with the subject and message filled in; you add the
+                recipient address there before sending.
+              </p>
+              <p class="loc">TOPA AI Advisory Group · Led by Flora Bahari · Greater Toronto Area</p>
+              <p>Your potential. New possibilities.</p>
+            </div>
+            <form class="composer reveal" id="composer" autocomplete="on">
+              <div class="field">
+                <label for="fName">Your name</label>
+                <input id="fName" name="name" type="text" placeholder="e.g. Alex Morgan" />
+              </div>
+              <div class="field">
+                <label for="fEmail">Your email</label>
+                <input id="fEmail" name="email" type="email" placeholder="e.g. alex@example.com" />
+              </div>
+              <div class="field">
+                <label for="fTopic">What would you like to talk about?</label>
+                <input id="fTopic" name="topic" type="text" placeholder="e.g. Using AI in my business" />
+              </div>
+              <div class="field">
+                <label for="fMsg">Your message</label>
+                <textarea id="fMsg" name="message" placeholder="Tell Flora a little about your business and what you're hoping AI can help with…"></textarea>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="button" id="emailBtn">Open as email</button>
+                <button class="btn btn-ghost" type="submit">Copy my message</button>
+              </div>
+              <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot-grid">
+        <p>© <span id="year">2026</span> TOPA AI Advisory Group · Led by Flora Bahari · Greater Toronto Area</p>
+        <p><a href="tel:+14169004177">416-900-4177</a> · Built as a single static page — ready to live in a GitHub repository for the team.</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        // Mobile nav
+        var toggle = document.getElementById('navToggle');
+        var links = document.getElementById('navLinks');
+        toggle.addEventListener('click', function () {
+          var open = links.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        links.addEventListener('click', function (e) {
+          if (e.target.tagName === 'A') {
+            links.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Year
+        document.getElementById('year').textContent = String(new Date().getFullYear());
+
+        // "Watch my introduction": bring the video into view and play it.
+        var watchBtn = document.getElementById('watchIntro');
+        var introVideo = document.getElementById('introVideo');
+        watchBtn.addEventListener('click', function () {
+          introVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          var p = introVideo.play();
+          if (p && p.catch) { p.catch(function () { /* controls remain available */ }); }
+        });
+
+        // Message composer: builds a tidy message from the form. It can be
+        // copied to the clipboard, or opened as a ready-to-send email draft
+        // in the visitor's own mail app (mailto:) — the site builds the email.
+        var form = document.getElementById('composer');
+        var status = document.getElementById('copyStatus');
+        function buildMessage() {
+          var name = document.getElementById('fName').value.trim();
+          var email = document.getElementById('fEmail').value.trim();
+          var topic = document.getElementById('fTopic').value.trim();
+          var msg = document.getElementById('fMsg').value.trim();
+          var lines = [];
+          lines.push('Hello Flora,');
+          lines.push('');
+          if (msg) { lines.push(msg); } else { lines.push('(your message)'); }
+          lines.push('');
+          if (topic) { lines.push('Topic: ' + topic); }
+          if (name) { lines.push('From: ' + name); }
+          if (email) { lines.push('Email: ' + email); }
+          return { text: lines.join('\n'), topic: topic, name: name };
+        }
+        document.getElementById('emailBtn').addEventListener('click', function () {
+          var built = buildMessage();
+          var subject = built.topic
+            ? 'TOPA enquiry: ' + built.topic
+            : 'TOPA AI Advisory Group — enquiry';
+          var href = 'mailto:?subject=' + encodeURIComponent(subject)
+            + '&body=' + encodeURIComponent(built.text);
+          status.textContent = 'Opening your email app — add the recipient address, then send.';
+          var a = document.createElement('a');
+          a.href = href;
+          a.style.display = 'none';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var text = buildMessage().text;
+          function done(ok) {
+            status.textContent = ok
+              ? 'Copied — your message is ready to paste and send.'
+              : 'Copy was blocked by the browser. Select the text in the form and copy it manually.';
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+          } else {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed'; ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = false;
+            try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+            document.body.removeChild(ta);
+            done(ok);
+          }
+        });
+
+      })();
+    </script>
+  </body>
+</html>
